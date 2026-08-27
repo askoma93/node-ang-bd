@@ -42,6 +42,30 @@ export default [
                                 "type:domain",
                                 "type:util"
                             ]
+                        },
+                        {
+                            sourceTag: "type:feature",
+                            onlyDependOnLibsWithTags: [
+                                "type:feature",
+                                "type:data-access",
+                                "type:domain",
+                                "type:util",
+                                "type:contract"
+                            ]
+                        },
+                        {
+                            sourceTag: "type:data-access",
+                            onlyDependOnLibsWithTags: [
+                                "type:data-access",
+                                "type:domain",
+                                "type:util"
+                            ]
+                        },
+                        {
+                            sourceTag: "type:util",
+                            onlyDependOnLibsWithTags: [
+                                "type:util"
+                            ]
                         }
                     ]
                 }

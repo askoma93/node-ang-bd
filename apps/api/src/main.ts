@@ -1,7 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
-import { loadApiConfig } from './app/api.config'
+import { loadApiConfig } from './app/api.config';
 
 async function bootstrap() {
   const config = loadApiConfig(process.env);
@@ -13,7 +13,9 @@ async function bootstrap() {
 
   await app.listen(config.port);
 
-  Logger.log(`🚀 Application is running on: http://localhost:${config.port}/${globalPrefix}`,);
+  Logger.log(
+    `🚀 Application is running on: http://localhost:${config.port}/${globalPrefix}`,
+  );
 }
 
 bootstrap();

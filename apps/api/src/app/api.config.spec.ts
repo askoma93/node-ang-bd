@@ -22,4 +22,4 @@ describe('uses port 3000 by default', () => {
     it('rejects a port above range', () => {
         expect(() => loadApiConfig({ API_PORT: '65536' })).toThrow();
     });
-})
+});

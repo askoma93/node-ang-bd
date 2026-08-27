@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
+import { DatabaseModule } from '@skillforge/platform-database';
 import { HealthController } from './health.controller';
 
 @Module({
-    controllers: [HealthController],
+  imports: [DatabaseModule],
+  controllers: [HealthController],
 })
 export class HealthModule {}

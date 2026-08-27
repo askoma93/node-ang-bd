@@ -1,0 +1,7 @@
+{
+  "name": "skills-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/skills/api/src",
+  "projectType": "library",
+  "tags": ["type:feature", "scope:skills"]
+}

@@ -97,6 +97,31 @@ Run each application in a separate terminal when all three are needed simultaneo
 
 The API uses port `3000` by default.
 
+Copy `.env.example` to `.env`, then start PostgreSQL and apply the checked-in
+migrations before starting the API:
+
+```powershell
+Copy-Item .env.example .env
+docker compose up -d postgres
+pnpm prisma migrate deploy
+pnpm nx serve api
+```
+
+The PostgreSQL service binds only to `127.0.0.1` and persists data in the
+`postgres-data` Docker volume. `DATABASE_URL` is required and must use the
+`postgresql://` or `postgres://` scheme.
+
+The API exposes separate health probes and the public Skill catalog:
+
+```text
+GET /api/health/live
+GET /api/health/ready
+GET /api/skills
+```
+
+Readiness returns `503` when PostgreSQL cannot be reached. A clean database
+returns `[]` from the Skill catalog.
+
 To use another port in PowerShell:
 
 ```powershell
